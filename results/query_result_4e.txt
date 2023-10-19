@@ -1,0 +1,14 @@
+       name        
+-------------------
+ White
+ Black
+ Yellow
+ Red
+ [No Color]
+ Blue
+ Light Bluish Gray
+ Dark Bluish Gray
+ Light Gray
+ Tan
+(10 rows)
+

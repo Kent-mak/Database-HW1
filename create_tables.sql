@@ -6,16 +6,6 @@ CREATE TABLE colors(
     PRIMARY KEY(id)
 );
 
-CREATE TABLE sets(
-    set_num VARCHAR(30),
-    name VARCHAR(100),
-    year int,
-    theme_id int,
-    num_parts int,
-    PRIMARY KEY(set_num)
-);
-
-
 CREATE TABLE part_categories(
     id SERIAL,
     name VARCHAR(100),
@@ -28,6 +18,17 @@ CREATE TABLE themes(
     parent_id int,
     PRIMARY KEY(id)
 );
+
+CREATE TABLE sets(
+    set_num VARCHAR(30),
+    name VARCHAR(100),
+    year int,
+    theme_id int,
+    num_parts int,
+    PRIMARY KEY(set_num)
+    FOREIGN KEY(theme_id) REFERENCES themes
+);
+
 
 CREATE TABLE inventories(
     id  int,
@@ -44,7 +45,6 @@ CREATE TABLE parts(
     PRIMARY KEY(part_num),
     FOREIGN KEY(part_cat_id) REFERENCES part_categories(id)
 );
-
 
 CREATE TABLE inventory_parts(
     inventory_id int,
