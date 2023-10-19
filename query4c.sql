@@ -1,17 +1,15 @@
 \encoding UTF-8
 
---4c
 
-\o ./results/query_result_4c.TEXT
+\o ./results/query_result_4c.txt
 
-WITH sets_themes(theme, theme_count) as
+WITH sets_themes(theme_id, theme_count) AS
     (
         SELECT 
             theme_id,
-            count(theme_id) as count
+            count(theme_id) AS count
         FROM 
             sets
-        WHERE
         GROUP BY theme_id
     ) 
 
@@ -24,5 +22,5 @@ WHERE
     id = (
         SELECT theme_id
         FROM sets_themes
-        WHERE theme_count = max(theme_count)
+        WHERE theme_count = (SELECT max(theme_count) FROM sets_themes)
     );
