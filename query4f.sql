@@ -4,9 +4,9 @@
 
 WITH color_in_theme(theme_name, color_name, quantity) AS
     (
-        SELECT 
-            themes.name,
-            colors.name,
+        SELECT
+            themes.name as theme_name,
+            colors.name as color_name,
             sum(quantity) as quantity
         FROM
             inventory_parts,
@@ -22,20 +22,21 @@ WITH color_in_theme(theme_name, color_name, quantity) AS
             and colors.id = color_id
 
         GROUP BY
-            themes.name,
-            colors.name
-        ORDER BY themes.name ASC
+            theme_name,
+            color_name
+        ORDER BY theme_name ASC
     ),
     theme_max_quantity(theme_name, max_quantity) AS
     (
         SELECT 
             theme_name,
-            max(quantity)
+            max(quantity) as max_quantity
         FROM
             color_in_theme
         GROUP BY 
             theme_name
     )
+
 
 SELECT
     theme_name,
@@ -43,7 +44,7 @@ SELECT
 FROM
     (
         SELECT 
-            color_in_theme.theme_name AS theme_name,
+            color_in_theme.theme_name as theme_name,
             color_name
         FROM
             color_in_theme,
@@ -52,4 +53,5 @@ FROM
             quantity = max_quantity 
             and color_in_theme.theme_name = theme_max_quantity.theme_name
     )
+
 GROUP BY theme_name;

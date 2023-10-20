@@ -1,7 +1,5 @@
 \encoding UTF-8
 
-
--- 4a
 \o ./results/query_result_4a.txt
 
 SELECT
