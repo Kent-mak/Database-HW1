@@ -68,6 +68,7 @@
  Competition                   | Black
  Constraction                  | Black
  Construction                  | Black
+ Control Lab                   | Black
  Control Lab                   | Dark Gray
  Cowboys                       | Black
  Creator                       | White
@@ -307,6 +308,7 @@
  Star Wars Episode 4/5/6       | Light Bluish Gray
  Star Wars Episode 7           | Dark Bluish Gray
  Star Wars Episode 8           | Light Bluish Gray
+ Star Wars Expanded Universe   | Black
  Star Wars Expanded Universe   | Dark Bluish Gray
  Star Wars Other               | Black
  Star Wars Rebels              | Light Bluish Gray
@@ -326,7 +328,9 @@
  The Battle of the Five Armies | Dark Bluish Gray
  The Desolation of Smaug       | Dark Bluish Gray
  The Fellowship of the Ring    | Dark Bluish Gray
+ The Hobbit                    | Reddish Brown
  The Hobbit                    | Tan
+ The Hobbit                    | Black
  The LEGO Movie                | Black
  The LEGO Movie Series         | Black
  The Lone Ranger               | Black
@@ -349,6 +353,7 @@
  Tohunga                       | Black
  Town                          | White
  Town Plan                     | White
+ Toy Story                     | Black
  Toy Story                     | Dark Bluish Gray
  Track System                  | Black
  Traffic                       | Black
@@ -379,6 +384,5 @@
  X-Pod                         | Black
  Xalax                         | Black
  Znap                          | Black
-(379 rows)
+(384 rows)
 
- 

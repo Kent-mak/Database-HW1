@@ -37,21 +37,12 @@ WITH color_in_theme(theme_name, color_name, quantity) AS
             theme_name
     )
 
-
-SELECT
-    theme_name,
-    max(color_name) as color_name
+SELECT 
+    color_in_theme.theme_name as theme_name,
+    color_name
 FROM
-    (
-        SELECT 
-            color_in_theme.theme_name as theme_name,
-            color_name
-        FROM
-            color_in_theme,
-            theme_max_quantity
-        WHERE
-            quantity = max_quantity 
-            and color_in_theme.theme_name = theme_max_quantity.theme_name
-    )
-
-GROUP BY theme_name;
+    color_in_theme,
+    theme_max_quantity
+WHERE
+    quantity = max_quantity 
+    and color_in_theme.theme_name = theme_max_quantity.theme_name
