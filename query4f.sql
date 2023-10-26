@@ -2,9 +2,10 @@
 
 \o ./results/query_result_4f.txt 
 
-WITH color_in_theme(theme_name, color_name, quantity) AS
+WITH color_in_theme(theme_id, theme_name, color_name, quantity) AS
     (
         SELECT
+            theme_id,
             themes.name as theme_name,
             colors.name as color_name,
             sum(quantity) as quantity
@@ -22,18 +23,21 @@ WITH color_in_theme(theme_name, color_name, quantity) AS
             and colors.id = color_id
 
         GROUP BY
+            theme_id,
             theme_name,
             color_name
-        ORDER BY theme_name ASC
+        ORDER BY theme_id ASC
     ),
-    theme_max_quantity(theme_name, max_quantity) AS
+    theme_max_quantity(theme_id, theme_name, max_quantity) AS
     (
-        SELECT 
+        SELECT
+            theme_id, 
             theme_name,
             max(quantity) as max_quantity
         FROM
             color_in_theme
         GROUP BY 
+            theme_id,
             theme_name
     )
 
@@ -45,4 +49,4 @@ FROM
     theme_max_quantity
 WHERE
     quantity = max_quantity 
-    and color_in_theme.theme_name = theme_max_quantity.theme_name
+    and color_in_theme.theme_id = theme_max_quantity.theme_id
